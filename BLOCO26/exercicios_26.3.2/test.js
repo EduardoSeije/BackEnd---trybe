@@ -1,4 +1,5 @@
 const { expect } = require('chai');
+const { it } = require('mocha');
 
 const checkNumber = require('./checkNumber');
 
@@ -37,6 +38,18 @@ describe(' Executa a função checkNumber', () => {
       it('é igual a neutro', () => {
         const result = checkNumber(0);
         expect(result).to.be.equals('neutro');
+      });
+    });
+  });
+  describe('Quando o parâmetro não for um número', () => {
+    describe('Aresposta', () => {
+      it('é uma string', () => {
+        const result = checkNumber('abc');
+        expect(result).to.be.a('string');
+      });
+      it('é diferente de número', () => {
+        const result = checkNumber('abc');
+        expect(result).to.be.equal('o valor deve ser um número');
       });
     });
   });
